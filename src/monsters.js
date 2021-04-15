@@ -37,4 +37,15 @@ let shuffle = array => {
 
 };
 
+shuffle(monsters);
 console.log(shuffle(monsters));
+
+app.innerHTML = '<div class="row">' + monsters.map((monster, index) => {
+    let html =
+        '<div class="grid">' + 
+            `<button data-monster-id="${index}">` +
+                `<img alt="${monster}" src="images/door.svg">` +
+            '</button>' +
+        '</div>';
+    return html;
+}).join('') + '</div>';
