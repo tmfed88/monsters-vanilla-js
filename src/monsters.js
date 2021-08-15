@@ -49,3 +49,18 @@ app.innerHTML = '<div class="row">' + monsters.map((monster, index) => {
         '</div>';
     return html;
 }).join('') + '</div>';
+
+
+let clickHandler = (e) => {
+    let monster = e.target.closest('[data-monster-id]');
+
+    if (!monster) return;
+    
+    let id = monster.getAttribute('data-monster-id');
+
+    monster.parentNode.innerHTML = `<img alt="${monsters[id]}" src="images/${monsters[id]}.svg">`
+    console.log(e.target);
+}
+
+document.addEventListener('click', clickHandler, false);
+
